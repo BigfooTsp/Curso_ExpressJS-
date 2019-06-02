@@ -1,47 +1,15 @@
+/** Archivo de inicio de servidor
+ * Inicializa servidor Express y conecta con base de datos.
+ */
+
 const express = require('express');
-const exphbs = require('express-handlebars');
-const path = require('path');
-const methodOverride = require('method-override');
-const session = require('express-session');
+const config = require('./server/config');  // Importa configuración del server
 
 // Initializations
-const app = express();
-require('./database'); // Conecta con la base de datos
-
-//Settings
-app.set('port', process.env.PORT || 3000);
-app.set('views', path.join(__dirname, 'views'));
-app.engine('.hbs', exphbs({
-    defaultLayout: 'main',
-    layoutsDir: path.join(app.get('views'), 'layouts'),
-    partialsDir: path.join(app.get('views'), 'partials'),
-    extname: '.hbs'
-}));
-app.set('view engine', '.hbs');
-
-// Middlewares
-app.use(express.urlencoded({ extended: false }));
-app.use(methodOverride('_method'));
-app.use(session({
-    secret: 'mysecretapp',
-    resave: true,
-    saveUninitialized: true
-}));
-
-// Global Variables
-
-
-// Routes
-app.use(require('./routes/index'));
-app.use(require('./routes/users'));
-app.use(require('./routes/notes'));
-
-
-// Static files
-app.use(express.static(path.join(__dirname, 'public')));
-
+const app = config(express());							// Genera instancia configurada de Express
+require('./database');											// Conecta con la base de datos
 
 // Server is listening
-app.listen(app.get('port'), () => {
-    console.log('Server on port', app.get('port'));
+app.listen(app.get('port'), () => {					// Inicia servidor
+  console.log('Server on port', app.get('port'));
 });
