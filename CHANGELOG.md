@@ -1,3 +1,11 @@
+## v.1.0.2
+- Aplicado framework de CSS Bootstrap
+
+
+## v.1.0.1
+- Añadida gestión de vistas con *.hbs*
+
+
 ## v.1.0.0- Inicio del proyecto.
 - Estructura básica creada
 - Servidor funcional en puerto 3000
