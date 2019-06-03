@@ -1,5 +1,11 @@
+## v.1.0.3
+- Se añade formulario de 'New Note' que envía datos con método *POST*.
+- El server recibe datos del formulario (desde frontend) pero no se tratan aun.
+- Se añade alerta con boostrap indicando error si al añadir una nueva nota se deja sin rellenar alguno de los campos.
+
+
 ## v.1.0.2
-- Aplicado framework de CSS Bootstrap
+- Aplicado framework de CSS Bootstrap para vistas principales.
 
 
 ## v.1.0.1
