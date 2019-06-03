@@ -1,7 +1,7 @@
 # Proyecto de APP de notas con autentificación y base de datos Mongo
 
 ## Minuto de video a esta altura del curso
-[Sección Creando tareas](https://youtu.be/-bI0diefasA?t=3544)
+[Sección Añadiendo a base de datos](https://youtu.be/-bI0diefasA?t=4615)
 
 
 ### Referencias

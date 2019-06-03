@@ -1,3 +1,9 @@
+## v.1.0.4
+- Añade nueva nota a base de datos
+- Muestra vista con todas las notas
+- Añadida configuración y módulos de eslint
+
+
 ## v.1.0.3
 - Se añade formulario de 'New Note' que envía datos con método *POST*.
 - El server recibe datos del formulario (desde frontend) pero no se tratan aun.
