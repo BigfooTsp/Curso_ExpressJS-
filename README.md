@@ -14,3 +14,6 @@ INDICE DEL TUTORIAL
 
 ### Avance del proyecto
 Consultar archivo [CHANGELOG.md](CHANGELOG.md)
+
+## TODO
+- [ ] Averiguar el uso de express validator para las comprobaciones en formularios.

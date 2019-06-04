@@ -1,3 +1,9 @@
+## v.1.1.1
+- Añadido registro de usuario test
+  - layouts *signup*
+  - partial *errors.hbs* para mostrar errores
+
+
 ## v.1.1.0
 - CRUD funcional finalizado
 - Se aplica información por mensajes al usuario utilizando el módulo *request-flash*
