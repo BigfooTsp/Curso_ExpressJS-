@@ -49,6 +49,13 @@ router.put('/notes/edit-note/:id', async (req, res) => {
 });
 
 
+// Borrar nota
+router.delete('/notes/delete/:id', async (req, res) => {
+  await Note.findByIdAndDelete(req.params.id);
+  res.redirect('/notes');
+});
+
+
 // Muestra todas las notas
 router.get('/notes', async (req, res) => {
   const notes = await Note.find().sort({ date: 'desc' });

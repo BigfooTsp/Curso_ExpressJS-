@@ -3,6 +3,7 @@
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
+                    
                     <h4 class="card-title d-flex justify-content-between align-items-center">
                         <!-- Título e icono editar
                         Con el href se indica el atributo _id que guarda el 
@@ -10,10 +11,20 @@
                         De esta forma se sabe cúal es la nota que se edita-->
                         {{title}} <a href="/notes/edit/{{id}}"><i class="fas fa-edit"></i></a>
                     </h4>
+
                     <p>{{description}}</p>
-                    <button class='btn btn-danger btn-block btn-sm'>
-                        Delete
-                    </button>
+
+                    <!-- Borrar Nota
+                    Con el href se indica el atributo _id que borra el 
+                    item en la base de datos.
+                    De esta forma se sabe cúal es la nota que se borra-->
+                    <form action="/notes/delete/{{_id}}?_method=DELETE" method="POST">
+                        <input type="hidden" name="_method" value='DELETE'>
+                        <button class='btn btn-danger btn-block btn-sm'>
+                            Delete
+                        </button>
+                    </form>
+
                 </div>
             </div>
         </div>
