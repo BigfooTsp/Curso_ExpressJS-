@@ -1,3 +1,8 @@
+## v.1.1.0
+- CRUD funcional finalizado
+- Se aplica información por mensajes al usuario utilizando el módulo *request-flash*
+
+
 ## v.1.0.7
 - Eliminar notas funcional
 
@@ -10,8 +15,8 @@
 
 
 ## v.1.0.5
--Se añaden iconos al cuadro de notas mediante [fontawesome.com](fontawesome.com)
--Se añade documento [BUGS.md](BUGS.md)
+- Se añaden iconos al cuadro de notas mediante [fontawesome.com](fontawesome.com)  
+- Se añade documento [BUGS.md](BUGS.md)
 
 
 ## v.1.0.4
