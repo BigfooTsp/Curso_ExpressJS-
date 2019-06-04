@@ -1,6 +1,13 @@
+## v.1.0.6
+- Boton de *delete* en notas
+- Añadida vista para mostrar si no hay notas en la base de datos
+- boton *editar nota* funcional
+  - Se añade conexión a la base de datos para editarla
+
+
 ## v.1.0.5
 -Se añaden iconos al cuadro de notas mediante [fontawesome.com](fontawesome.com)
--Se añade documento *BUGS.md*
+-Se añade documento [BUGS.md](BUGS.md)
 
 
 ## v.1.0.4

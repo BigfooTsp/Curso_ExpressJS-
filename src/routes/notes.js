@@ -11,6 +11,7 @@ router.get('/notes/add', (req, res) => {
   res.render('notes/new-note');
 });
 
+
 // Recibiendo datos de formulario 'New-Note'
 router.post('/notes/new-note', async (req, res) => {
   const { title, description } = req.body;
@@ -33,6 +34,20 @@ router.post('/notes/new-note', async (req, res) => {
     res.redirect('/notes'); // Muestra respuesta
   }
 });
+
+
+// Editando notas
+router.get('/notes/edit/:id', async (req, res) => {
+  const note = await Note.findById(req.params.id);
+  res.render('notes/edit-note', { note });
+});
+// ... que envía un PUT recibido por la siguiente
+router.put('/notes/edit-note/:id', async (req, res) => {
+  const { title, description } = req.body;
+  await Note.findByIdAndUpdate(req.params.id, { title, description });
+  res.redirect('/notes');
+});
+
 
 // Muestra todas las notas
 router.get('/notes', async (req, res) => {

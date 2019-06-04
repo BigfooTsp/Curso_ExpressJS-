@@ -1,13 +1,27 @@
 <div class="row">
-    {{#each notes}}
+    {{#each notes}} <!-- SI hay notas -->
         <div class="col-md-3">
             <div class="card">
                 <div class="card-body">
-                    <h4 class="card-title d-flex justify-content-between">
-                        {{title}} <a href="#"><i class="fas fa-edit"></i></a> <!-- icono editar-->
+                    <h4 class="card-title d-flex justify-content-between align-items-center">
+                        <!-- Título e icono editar
+                        Con el href se indica el atributo _id que guarda el 
+                        item en la base de datos.
+                        De esta forma se sabe cúal es la nota que se edita-->
+                        {{title}} <a href="/notes/edit/{{id}}"><i class="fas fa-edit"></i></a>
                     </h4>
                     <p>{{description}}</p>
+                    <button class='btn btn-danger btn-block btn-sm'>
+                        Delete
+                    </button>
                 </div>
+            </div>
+        </div>
+    {{else}}        <!-- Si NO hay notas -->
+        <div class="card mx-auto">
+            <div class="card-body">
+                <p class="lead">No hay notas</p>
+                <a href="/notes/add" class='btn btn-succes btn-block'>Crea una</a>
             </div>
         </div>
     {{/each}}
