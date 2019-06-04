@@ -1,3 +1,10 @@
+## v.1.1.2
+- Creando nuevos usuarios en la base de datos
+- Añade *user* como variable global a *index.js*
+- Guarda el *password* en la base de datos **encriptado**
+- Muestra mensaje de *usuario registrado* y redirecciona al *signin*
+
+
 ## v.1.1.1
 - Añadido registro de usuario test
   - layouts *signup*

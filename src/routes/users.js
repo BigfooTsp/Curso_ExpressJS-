@@ -1,7 +1,12 @@
+/* eslint-disable eqeqeq */
+/* eslint-disable max-len */
 /* eslint-disable camelcase */
 const express = require('express');
 const router = express.Router();
 
+const User = require('../models/User');
+
+// Formulario Ingresando usuario
 router.get('/users/signin', (req, res) => {
   res.render('users/signin');
 });
@@ -12,7 +17,7 @@ router.get('/users/signup', (req, res) => {
 });
 
 // ... Procesa nuevo usuario
-router.post('/users/signup', (req, res) => {
+router.post('/users/signup', async (req, res) => {
   const {
     name, email, password, confirm_password,
   } = req.body;
@@ -28,7 +33,17 @@ router.post('/users/signup', (req, res) => {
       errors, name, email, password, confirm_password,
     });
   } else {
-    res.send('ok');
+    const emailUser = await User.findOne({ email: email });
+    if (emailUser) {
+      req.flash('error_msg', 'Este email ya está en uso ...');
+      res.redirect('/users/signup');
+    }
+
+    const newUser = new User({ name, email, password });          // Crea un usuario
+    newUser.password = await newUser.encryptPassword(password);   // Encripta el password
+    await newUser.save();                                         // Guarda nuevo usuario en la base de datos
+    req.flash('success_msg', 'Estas registrado...');
+    res.redirect('/users/signin');
   }
 });
 
