@@ -1,3 +1,8 @@
+## v.1.0.5
+-Se añaden iconos al cuadro de notas mediante [fontawesome.com](fontawesome.com)
+-Se añade documento *BUGS.md*
+
+
 ## v.1.0.4
 - Añade nueva nota a base de datos
 - Muestra vista con todas las notas
