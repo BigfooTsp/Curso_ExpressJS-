@@ -1,3 +1,9 @@
+## v.1.2.0
+- Aplicación finalizada
+- Muestra las notas exclusivas de cada usuario
+- Cambiado tema de Bootstrap con bootswatch.com
+
+
 ## v.1.1.6
 - View de bienvenida si inicia sesión
 - El menú de navegación varía si hay o no sesión

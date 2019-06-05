@@ -1,7 +1,6 @@
 # Proyecto de APP de notas con autentificación y base de datos Mongo
 
-### Referencias
-INDICE DEL TUTORIAL  
+## Referencias
 [Vídeo tutorial](https://www.youtube.com/watch?v=-bI0diefasA)  
 1. Backend: 04:47
 2. Views (Template Engine): 41:24
@@ -12,8 +11,13 @@ INDICE DEL TUTORIAL
 7. Personal Data for Users: 03:12:40
 
 
-### Avance del proyecto
+## Avance del proyecto
 Consultar archivo [CHANGELOG.md](CHANGELOG.md)
+
+
+## Esquema de funcionamiento del proyecto
+![](src/public/images/App_Notas.png)
+
 
 ## TODO
 - [ ] Averiguar el uso de express validator para las comprobaciones en formularios.
