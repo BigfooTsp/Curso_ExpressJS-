@@ -1,5 +1,12 @@
+## v.1.1.5
+- Logout funcional
+- Mejorada barra de navegación
+- se añade 'helper' auth.js para evitar ingreso a enlace 'notas' si no se ha iniciado sesión
+
+
 ## v.1.1.4
-- Añadida barra de navegación y mejoradas vistas
+- Añadida barra de navegación
+- Mejoradas las vistas
 
 
 ## v.1.1.3

@@ -26,7 +26,7 @@ app.set('view engine', '.hbs');
 // ... Generalmente de importan y luego se instancias aquí
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(session({               // Proporciona la variable req.session
+app.use(session({               // Guarda la sesión de usaurio en req.session, rew.user
   secret: 'mysecretapp',
   resave: true,
   saveUninitialized: true,
