@@ -1,6 +1,11 @@
+## v.1.1.4
+- Añadida barra de navegación y mejoradas vistas
+
+
 ## v.1.1.3
 - Comprobación de password con base de datos
 - Inicio de sesión funcional
+- redirección a página de notas tras inicio de sesión
 
 
 ## v.1.1.2
