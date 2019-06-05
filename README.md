@@ -17,3 +17,7 @@ Consultar archivo [CHANGELOG.md](CHANGELOG.md)
 
 ## TODO
 - [ ] Averiguar el uso de express validator para las comprobaciones en formularios.
+- [ ] Que las notas se añadan a Google-Docs
+- [ ] leer sobre modulo bcryptjs y critpografía
+- [ ] Leer otras formas de inicaiar sesión (google, etc..) con el módulo passport
+- [ ] Mantener sesion con cookies

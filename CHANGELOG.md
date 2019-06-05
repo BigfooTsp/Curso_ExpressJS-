@@ -1,3 +1,8 @@
+## v.1.1.3
+- Comprobación de password con base de datos
+- Inicio de sesión funcional
+
+
 ## v.1.1.2
 - Creando nuevos usuarios en la base de datos
 - Añade *user* como variable global a *index.js*

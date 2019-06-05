@@ -5,11 +5,25 @@ const express = require('express');
 const router = express.Router();
 
 const User = require('../models/User');
+const passport = require('passport');
+
 
 // Formulario Ingresando usuario
 router.get('/users/signin', (req, res) => {
   res.render('users/signin');
 });
+
+/** Procesa inicio de sesión de usuario
+ * Aquí es donde se utiliza realmente el módulo passport
+ * gestionando la sesión de usuario.
+ * Redirecciona según el resultado de la autentificacion.
+ */
+router.post('/users/signin', passport.authenticate('local', {
+  successRedirect: '/notes',
+  failureRedirect: '/users/signin',
+  failureFlash: true
+}));
+
 
 // Formulario 'Nuevo usuario'
 router.get('/users/signup', (req, res) => {
@@ -33,7 +47,7 @@ router.post('/users/signup', async (req, res) => {
       errors, name, email, password, confirm_password,
     });
   } else {
-    const emailUser = await User.findOne({ email: email });
+    const emailUser = await User.findOne({ email });
     if (emailUser) {
       req.flash('error_msg', 'Este email ya está en uso ...');
       res.redirect('/users/signup');
