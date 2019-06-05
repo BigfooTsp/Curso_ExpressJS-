@@ -1,3 +1,8 @@
+## v.1.1.6
+- View de bienvenida si inicia sesión
+- El menú de navegación varía si hay o no sesión
+
+
 ## v.1.1.5
 - Logout funcional
 - Mejorada barra de navegación

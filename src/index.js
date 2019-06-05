@@ -26,13 +26,13 @@ app.set('view engine', '.hbs');
 // ... Generalmente de importan y luego se instancias aquí
 app.use(express.urlencoded({ extended: false }));
 app.use(methodOverride('_method'));
-app.use(session({               // Guarda la sesión de usaurio en req.session, rew.user
+app.use(session({               // Guarda la sesión de usaurio en req.session
   secret: 'mysecretapp',
   resave: true,
   saveUninitialized: true,
 }));
 app.use(passport.initialize()); // Siempre después del middleware 'session'
-app.use(passport.session());    // usa luna instancia de 'express-session'
+app.use(passport.session());    // usa una instancia de 'express-session' , req.user
 app.use(flash());               // Mensajes a las vistas del usuario
 
 
@@ -43,6 +43,7 @@ app.use((req, res, next) => {
   res.locals.success_msg = req.flash('success_msg');
   res.locals.error_msg = req.flash('error_msg');
   res.locals.error = req.flash('error');  // Para mensajes de passport
+  res.locals.user = req.user; // Información de usuario proporcionado por passport
 
   next();
 });

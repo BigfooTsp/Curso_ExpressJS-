@@ -15,26 +15,31 @@
         </ul>
 
         <ul class="navbar-nav ml-auto">
-            <li class="nav-item active">
-                <a class="nav-link" href="/users/signin">Signin <span class="sr-only">(current)</span></a>
-            </li>
-            <li class="nav-item">
-                <a class="nav-link" href="/users/signup">Signup</a>
-            </li>
-            <li class="nav-item dropdown">
-                <a href="#" id='dropdownMenuLink' class="nav-link dropdown-toggle"
-                role='button' data-toggle='dropdown' aria-haspopup='true'
-                aria-expanded='false'>
-                    Notas
-                </a>
 
-                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <a class="dropdown-item" href="/notes">Mis Notas</a>
-                    <a class="dropdown-item" href="/notes/add">Nueva Nota</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="/users/logout">Logout</a>
-                </div>
-            </li>
+            {{#if user}}
+                <li class="nav-item dropdown">
+                    <a href="#" id='dropdownMenuLink' class="nav-link dropdown-toggle"
+                    role='button' data-toggle='dropdown' aria-haspopup='true'
+                    aria-expanded='false'>
+                        Notas
+                    </a>
+
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                        <a class="dropdown-item" href="/notes">Mis Notas</a>
+                        <a class="dropdown-item" href="/notes/add">Nueva Nota</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="/users/logout">Logout</a>
+                    </div>
+                </li>
+            {{else}}
+                <li class="nav-item active">
+                    <a class="nav-link" href="/users/signin">Signin <span class="sr-only">(current)</span></a>
+                </li>
+                <li class="nav-item">
+                    <a class="nav-link" href="/users/signup">Signup</a>
+                </li>
+            {{/if}}
+
         </ul>
     </div>
     </nav>  
