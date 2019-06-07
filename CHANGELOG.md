@@ -1,3 +1,9 @@
+## ... guardado de imagen en /public/uploads
+-Subida de imágenes activa
+  - Uso de helper *randomNumber()* para renombrar los archivos upload
+  - Primero se guarda en */public/upload/temp*, se genera un nuevo nombre aleatorio y se mueve a */public/upload*
+
+
 ## ... Formulario de subir imagen (layout)
 - Añadido wiew de index (home)
 - Formulario de subir imagen permite seleccionar archivo

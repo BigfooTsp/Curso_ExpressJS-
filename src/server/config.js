@@ -1,3 +1,4 @@
+/* eslint-disable indent */
 
 /** Archivo de configuración del servidor:
  * Recibe una instancia de express y la devuelve configurada.
@@ -33,7 +34,8 @@ module.exports = (app) => {
   
   app.use(multer({             // Guarda imágenes de upload en ./public...
     dest: path.join(__dirname, '../public/upload/temp'),
-  }).single('image'));        // Crea variable src.image con solo la imagen accesible.
+  }).single('image'));        // 'image' se refiere al name="image" del input de ./views/index.hbs
+                              // Añade variable req.file
   
   app.use(express.urlencoded({ extended: false })); // Procesa datos desde formularios
   app.use(express.json());    // Maneja datos JSON
