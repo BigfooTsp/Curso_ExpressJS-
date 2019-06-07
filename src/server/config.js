@@ -17,7 +17,7 @@ module.exports = (app) => {
   app.set('port', process.env.PORT || 3000);  // ... port
 
   // ... View engine
-  app.set('views', path.join(__dirname, 'views'));
+  app.set('views', path.join(__dirname, '../views'));
   app.engine('.hbs', exphbs({
     defaultLayout: 'main',
     layoutsDir: path.join(app.get('views'), 'layouts'),
