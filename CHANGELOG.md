@@ -1,3 +1,8 @@
+## ... Formulario de subir imagen (layout)
+- Añadido wiew de index (home)
+- Formulario de subir imagen permite seleccionar archivo
+
+
 ## ... Vistas home y layout. Bug view [x]
 - Aplicación de vistas
   - Se añade vista home con layout main (cabecera con logo)
