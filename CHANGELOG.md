@@ -1,3 +1,12 @@
+![](/tutorial/images/ImShare.jpeg)
+
+
+### ... Vista de imagen
+- Se hacen funcionales los enlaces de la imagen
+- Al subir imagen se redirecciona a su vista
+- La vista incluye iconos de likes, views y un contador de tiempo.
+  -Se añade *helper handlebars* para represental legible el atributo datetime del item mongo de la imagen
+
 ### ... Vista home con las imágenes subidas
 - El controller *home* genera la variable *{{{images}}* con las imágenes y lo envía a la vista *index.hbs*
 

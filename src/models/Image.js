@@ -13,8 +13,9 @@ const ImageSchema = new Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
-/** Variable virtual que es una función que al ser 
- * llamada devuelve el nombre de la imagen sin extensión
+/** Variable virtual 
+ * Función que genera una variable image.uniqueId donde encontrar
+ * el nombre del archivo sin extensión
  */
 ImageSchema.virtual('uniqueId')
   .get(function () {

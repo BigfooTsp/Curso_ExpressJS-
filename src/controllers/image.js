@@ -12,10 +12,19 @@ const { Image } = require('../models/index');
 
 const ctrl = {};
 
-ctrl.index = (req, res) => {
-  
+/** Generando vista de imagen 
+ *  GET /images/:image_id 
+ */
+ctrl.index = async (req, res) => {
+  // Búsqueda. La expresión regular es para que incluya la extensión en la dirección 
+  const image = await Image.findOne({ filename: { $regex: req.params.image_id } });  
+  res.render('image', { image });
 };
 
+
+/** Subiendo imagen al servidor 
+ * POST /images
+*/
 ctrl.create = (req, res) => {
   // configurando nombre de archivo
   const saveImage = async () => {
@@ -45,7 +54,7 @@ ctrl.create = (req, res) => {
         await fs.unlink(imageTempPath);             // si no, elimina el archivo de public/temp
         res.status(500).json({ error: 'Solo se permiten archivos de imagen' }); // Manda error 500 y mensaje
       }
-      res.redirect('/');
+      res.redirect(`/images/${imgURL}`);
     }
   };
 
