@@ -1,3 +1,7 @@
+### ... Vista home con las imágenes subidas
+- El controller *home* genera la variable *{{{images}}* con las imágenes y lo envía a la vista *index.hbs*
+
+
 ### ... Guardado de datos de imagen en Mongo
 - modelo de Image para base de datos
 - Guardado en la base de datos

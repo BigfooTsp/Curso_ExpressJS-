@@ -45,7 +45,7 @@ ctrl.create = (req, res) => {
         await fs.unlink(imageTempPath);             // si no, elimina el archivo de public/temp
         res.status(500).json({ error: 'Solo se permiten archivos de imagen' }); // Manda error 500 y mensaje
       }
-      res.send('works');
+      res.redirect('/');
     }
   };
 

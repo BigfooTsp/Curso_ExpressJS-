@@ -6,7 +6,7 @@
 
 https://github.com/FaztTech/nodejs-im...
 
-INDICE DEL CURSO
+INDICE DEL CURSO  
 * VISTA PREVIA DEL PROYECTO: 00:00
 1. CREACIÓN DEL SERVIDOR: 04:55
 2. RUTAS DEL SERVIDOR CON EXPRESS: 53:34
@@ -23,11 +23,13 @@ INDICE DEL CURSO
 13. BARRA LATERAL: 04:05:45
 
 
-### Avance del proyecto
-Consultar archivo [CHANGELOG.md](CHANGELOG.md)
+## Avance del proyecto
+Consultar archivo [CHANGELOG.md](CHANGELOG.md)  
+
+![](/tutorial/images/ImShare.jpeg)
 
 ## TODO 
 - [ ] Aprender sobre Mongoose
 - [ ] Aprender sobre Boostrap
 - [ ] Información sobre el modulo *multer*
-- [ ] Información sobre el modulo *fs-extra*
+- [ ] Información sobre el modulo *fs-extra*lñ´`
