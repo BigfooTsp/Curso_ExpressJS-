@@ -28,5 +28,7 @@ module.exports = {
         "no-tabs": 0,
         "global-require": 0,
         "padded-blocks": 0,
+        "func-names": 0,
+        "max-len": 0,
     }
 };

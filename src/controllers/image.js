@@ -8,26 +8,50 @@ const path = require('path');
 const { randomNumber } = require('../helpers/libs');
 const fs = require('fs-extra');
 
+const { Image } = require('../models/index');
+
 const ctrl = {};
 
 ctrl.index = (req, res) => {
   
 };
 
-ctrl.create = async (req, res) => {
-  // configurando nombre y dirección de archivo
-  const imgURL = randomNumber();
-  const imageTempPath = req.file.path;
-  const ext = path.extname(req.file.originalname)
-    .toLowerCase(); // Obtiene la extensión de la imagen
-  const targetPath = path.resolve(`src/public/upload/${imgURL}${ext}`);
+ctrl.create = (req, res) => {
+  // configurando nombre de archivo
+  const saveImage = async () => {
+    const imgURL = randomNumber();
+    const images = await Image.find({ filename: imgURL });  // Comprobando que no está repetido                // Comprueba si el nombre está repetido
+    if (images.length > 0) {
+      saveImage();                                  // Si es igual, repite la función (recursión)
+    } else {                                        // Si no, guarda archivo
+      // Confirgurando directorios
+      const imageTempPath = req.file.path;
+      const ext = path.extname(req.file.originalname)
+        .toLowerCase(); // Obtiene la extensión de la imagen
+      const targetPath = path.resolve(`src/public/upload/${imgURL}${ext}`);
 
-  // Validación de la imagen y guardado renombrado en destino /public/upload
-  if (ext === '.png' || ext === '.gif' || ext === '.jpg' || ext === '.jpeg') {
-    await fs.rename(imageTempPath, targetPath);
-  }
-  res.send('Works!');
+      // Validación de si el archivo es una imagen
+      if (ext === '.png' || ext === '.gif' || ext === '.jpg' || ext === '.jpeg') {
+        // Guardando imagen renombrada en destino /public/upload
+        await fs.rename(imageTempPath, targetPath);
+        // Guardando datos de imagen en base de datos
+        const newImg = new Image({                  // Crea Modelo
+          title: req.body.title,
+          filename: imgURL + ext,
+          description: req.body.description,
+        });
+        const imageSaved = await newImg.save();     // Guarda los datos en Mongo
+      } else {
+        await fs.unlink(imageTempPath);             // si no, elimina el archivo de public/temp
+        res.status(500).json({ error: 'Solo se permiten archivos de imagen' }); // Manda error 500 y mensaje
+      }
+      res.send('works');
+    }
+  };
+
+  saveImage();
 };
+
 
 
 ctrl.like = (req, res) => {

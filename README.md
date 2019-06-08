@@ -25,3 +25,9 @@ INDICE DEL CURSO
 
 ### Avance del proyecto
 Consultar archivo [CHANGELOG.md](CHANGELOG.md)
+
+## TODO 
+- [ ] Aprender sobre Mongoose
+- [ ] Aprender sobre Boostrap
+- [ ] Información sobre el modulo *multer*
+- [ ] Información sobre el modulo *fs-extra*
