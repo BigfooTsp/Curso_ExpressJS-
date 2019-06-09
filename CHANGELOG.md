@@ -3,6 +3,11 @@
 
 # Changelog
 
+## v.1.0.2 Borrado y comentarios completos
+- Se añade ocultación de formulario de comentario por script
+- Eliminacion de imagen habilitada
+
+
 ### ... Contador de visitas y likes funcional
 - Se activa contador de visitas de las imágenes
 - Se añade scripts javascript a las vistas

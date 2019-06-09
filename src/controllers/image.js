@@ -18,13 +18,13 @@ const ctrl = {};
  */
 ctrl.index = async (req, res) => {
   // Búsqueda. La expresión regular es para que incluya la extensión en la dirección 
-  let viewModel = { images: {}, comments: [] };
+  const viewModel = { images: {}, comments: [] };
 
   const image = await Image.findOne({ filename: { $regex: req.params.image_id } });
   if (image) {
     image.views += 1;       // Actualiza contador de views
     viewModel.image = image;
-    image.save()
+    image.save();
     const comments = await Comment.find({ image_id: image._id })
       .sort({ timestamp: 1 });
     viewModel.comments = comments;
@@ -62,6 +62,7 @@ ctrl.create = (req, res) => {
           description: req.body.description,
         });
         const imageSaved = await newImg.save();     // Guarda los datos en Mongo
+        res.redirect(`/images/${imageSaved.uniqueId}`);
       } else {
         await fs.unlink(imageTempPath);             // si no, elimina el archivo de public/temp
         res.status(500).json({ error: 'Solo se permiten archivos de imagen' }); // Manda error 500 y mensaje
@@ -72,7 +73,6 @@ ctrl.create = (req, res) => {
 
   saveImage();
 };
-
 
 /** Like
  * Solicitado desde botón 'like' recibe el Id de la imagen 
@@ -99,7 +99,7 @@ ctrl.comment = async (req, res) => {
     const newComment = new Comment(req.body);
     newComment.gravatar = md5(newComment.email); // Gravatar requiere este hash para identificar al usuario
     newComment.image_id = image._id;
-    console.log(newComment)
+    console.log(newComment);
     await newComment.save();
     res.redirect(`/images/${image.uniqueId}#${newComment._id}`);
   } else {
@@ -108,8 +108,21 @@ ctrl.comment = async (req, res) => {
 
 };
 
-ctrl.remove = (req, res) => {
-
+/** Elimina imagen
+ * Borra la imagen del directorio
+ * Borra los comentarios
+ * Borra los datos de la base de datos
+ */
+ctrl.remove = async (req, res) => {
+  const image = await Image.findOne({ filename: { $regex: req.params.image_id } });
+  if (image) {
+    await fs.unlink(path.resolve(`./src/public/upload/${image.filename}`));
+    await Comment.deleteOne({ image_id: image._id });
+    await image.remove();
+    res.json(true);
+  } else {
+    res.status(500).json({ error: 'Internal Error' });
+  }
 };
 
 module.exports = ctrl;
