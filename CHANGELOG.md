@@ -1,5 +1,11 @@
 ![](/tutorial/images/ImShare.jpeg)
-
+### ... Comentarios funcionales
+- Se añaden comentrios a la vista imagen
+  - Añadir comentarios funcional
+  - Usa perfiles de *gravatar.com*
+  - Se añade modelo *comment* para base de datos
+  - se guardan en disco duro
+- Rectificadas rutas de */routes/index*
 
 ### ... Vista de imagen
 - Se hacen funcionales los enlaces de la imagen

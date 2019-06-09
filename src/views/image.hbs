@@ -1,4 +1,7 @@
+<!------------- IMAGEN ---------------->
+<!------------------------------------->
 <div class="card">
+  <!-- Título, botón borrar  -->
   <div class="card-header d-flex justify-content-between align-items-center">
     <h2>{{ image.title }}</h2>
     <button class="btn btn-danger" id='btn-delete' data-id='{{ image.uniqueId }}'>
@@ -6,6 +9,7 @@
     </button>
   </div>
 
+  <!-- descripción  -->
   <div class="card-body">
     <p>{{ image.description }}</p>
     <div class="text-center">
@@ -13,6 +17,7 @@
     </div>
   </div>
 
+  <!-- boton Like, likes, views, time -->
   <div class="card-footer d-flex justify-content-between align-items-center">
     <button class="btn btn-success" id='btn-like' data-id='{{ image.filename }}'>
       <i class="fas fa-heart"></i> Like
@@ -30,3 +35,59 @@
   </div>
 </div>
 
+<!------------ COMENTARIOS ------------>
+<!------------------------------------->
+<div class="card mt2">
+
+  <!-- Título, Publica un comentario -->
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h3>Comentarios</h3>
+    <button class="btn btn-info" id='btn-toggle-comment'>
+      <i class="fa fa-coments-o"></i> Publica un comentario
+    </button>
+  </div>
+
+  <!-- formulario -->
+  <div class="card-body">
+    <blockquote id='post-comment'>
+      <form action="/images/{{image.uniqueId}}/comment" method="POST">
+        <div class="form-group">
+          <input type="text" class="form-control" name='name' paceholder='Nombre'>
+        </div>
+        <div class="form-group">
+          <input type="text" class="form-control" name='email' paceholder='Email'>
+        </div>
+        <div class="form-group">
+          <textarea name="comment" rows="2" class="form-control" placeholder='Tu comentario'></textarea>
+        </div>
+        <div class="form-group">
+          <button class="btn btn-success" id='btn-comment'>
+            <i class="fa fa-comment"></i> Publicar
+          </button>
+        </div>
+      </form>
+    </blockquote>
+
+  <!-- Comentarios anteriores -->
+    <ul class="list-group p-4">
+
+      {{#each comments}}
+        <li class="list-group-item">
+          <div class="row">
+            <a href="#" class="col text-center">
+              <!-- Gravatar usa un hash del email para identificar al usuario -->
+              <img src="http://gravatar.com/avatar/{{gravatar}}?d=monsterid&s=45" alt="" />
+            </a>
+            <blockquote class='col'>
+              <p class="lead">{{comment}}</p>
+              <footer class="blockquote-footer">
+                {{name}} - {{timeago timestamp}}
+              </footer>
+            </blockquote>
+          </div>
+        </li>
+      {{/each}}
+
+    </ul>
+  </div>
+</div>
