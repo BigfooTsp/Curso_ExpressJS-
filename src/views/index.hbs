@@ -13,7 +13,7 @@
         <div class="input-group">
           <div class="custom-file">
             <input type="file" name="image" class="custom-file-input"
-                   id="inputGroup" aria-describedby="inputGroupFileAddon"
+                   id="inputGroupFile" aria-describedby="inputGroupFileAddon"
                    required>
             <label class="custom-file-label" for="inputGroupFile">Selecciona una imagen</label>
           </div>
@@ -27,7 +27,7 @@
       <!-- Descripción de la imagen -->
       <div class="form-group">
         <textarea name="description" class="form-control" rows="2"
-                  placeholder"Descripción de la imagen" required>
+                  placeholder="Descripción de la imagen" required>
         </textarea>
       </div>
       <!-- Boton Upload -->
@@ -49,7 +49,7 @@
   <div class="card-body">
     <div class="row">
       {{#each images}}
-        <div class="col-md-4 text center">
+        <div class="col-md-4 text-center">
           <a href="/images/{{uniqueId}}">
             <img src="/public/upload/{{filename}}" alt="{{title}}" class='w-100 h-100 img-thumbnail'>
           </a>

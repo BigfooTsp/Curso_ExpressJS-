@@ -51,7 +51,7 @@ module.exports = (app) => {
 
   // errorhandlers
   if (app.get('env') === 'development') {       // Si la aplicación está en desarrollo
-    app.use(errorhandler);                      // usar errorHandler (gestión de errores)
+    app.use(errorhandler());                    // usar errorHandler (gestión de errores)
   }
 
 

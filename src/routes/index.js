@@ -3,11 +3,13 @@
 const express = require('express');
 const router = express.Router();
 
+// Controllers
 const home = require('../controllers/home');
 const image = require('../controllers/image');
 
 
 module.exports = (app) => {
+  
   router.get('/', home.index);                                // Página de inicio
   router.get('/images/:image_id', image.index);               // Página de imagen
   router.post('/images', image.create);                       // Subir imagen

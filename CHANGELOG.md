@@ -1,4 +1,14 @@
+# Gráfico de explicación del proyecto
 ![](/tutorial/images/ImShare.jpeg)
+
+# Changelog
+
+### ... Contador de visitas y likes funcional
+- Se activa contador de visitas de las imágenes
+- Se añade scripts javascript a las vistas
+  - JQuery
+  - Custom */public/js/scripts.js*
+
 ### ... Comentarios funcionales
 - Se añaden comentrios a la vista imagen
   - Añadir comentarios funcional
@@ -7,11 +17,13 @@
   - se guardan en disco duro
 - Rectificadas rutas de */routes/index*
 
+
 ### ... Vista de imagen
 - Se hacen funcionales los enlaces de la imagen
 - Al subir imagen se redirecciona a su vista
 - La vista incluye iconos de likes, views y un contador de tiempo.
   -Se añade *helper handlebars* para represental legible el atributo datetime del item mongo de la imagen
+
 
 ### ... Vista home con las imágenes subidas
 - El controller *home* genera la variable *{{{images}}* con las imágenes y lo envía a la vista *index.hbs*

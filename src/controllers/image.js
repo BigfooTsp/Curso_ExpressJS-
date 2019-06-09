@@ -7,6 +7,7 @@
 const path = require('path');                             // Funciones para nombres de directorios
 const fs = require('fs-extra');                           // Funciones extra file system
 const md5 = require('md5');                               // Manejo de hash
+
 const { randomNumber } = require('../helpers/libs');      // Helper para nombres aleatorios
 const { Image, Comment } = require('../models/index');    // Modelos de la base de datos
 
@@ -17,9 +18,20 @@ const ctrl = {};
  */
 ctrl.index = async (req, res) => {
   // Búsqueda. La expresión regular es para que incluya la extensión en la dirección 
-  const image = await Image.findOne({ filename: { $regex: req.params.image_id } });  
-  const comments = await Comment.find({ image_id: image._id });
-  res.render('image', { image, comments });
+  let viewModel = { images: {}, comments: [] };
+
+  const image = await Image.findOne({ filename: { $regex: req.params.image_id } });
+  if (image) {
+    image.views += 1;       // Actualiza contador de views
+    viewModel.image = image;
+    image.save()
+    const comments = await Comment.find({ image_id: image._id })
+      .sort({ timestamp: 1 });
+    viewModel.comments = comments;
+    res.render('image', viewModel);
+  } else {
+    res.redirect('/');
+  }
 };
 
 /** Subiendo imagen al servidor 
@@ -62,9 +74,19 @@ ctrl.create = (req, res) => {
 };
 
 
-
-ctrl.like = (req, res) => {
-
+/** Like
+ * Solicitado desde botón 'like' recibe el Id de la imagen 
+ * y suma uno
+ * */
+ctrl.like = async (req, res) => {
+  const image = await Image.findOne({ filename: { $regex: req.params.image_id } });
+  if (image) {
+    image.likes += 1;
+    await image.save();
+    res.json({ likes: image.likes });
+  } else {
+    res.status(500).json({ error: 'Internal Error' });
+  }
 };
 
 /** Añade comentario
