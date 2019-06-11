@@ -1,7 +1,22 @@
+https://github.com/FaztTech/nodejs-imgshare/commit/fef6308d2f2c19a5becc81c92af2c86659515120
+
 # Gráfico de explicación del proyecto
 ![](/tutorial/images/ImShare.jpeg)
 
 # Changelog
+
+## v.1.1.0 App 'completa'. Sidebar y upload
+-Se añade vista de barra lateral con stats
+  - Se utilizan los helpers desde los controladores para obtener los datos necesarios para configurar las vistas
+  - Añadidos 'partials layouts'para la sidebar
+- Finalizado el curso.
+- **Posibilidades de mejora de la aplicación**
+  - Que solo se pueda dar un like
+  - Usar js en lugar de ajax
+  - Limitar el tamaño máximo de la imagen
+  - Añadir cuentas de usuarios
+  - webshockets para notificaciones en tiempo real
+  - Se puede añadir un chat
 
 ## v.1.0.2 Borrado y comentarios completos
 - Se añade ocultación de formulario de comentario por script

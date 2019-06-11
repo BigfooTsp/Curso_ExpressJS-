@@ -10,6 +10,7 @@ const md5 = require('md5');                               // Manejo de hash
 
 const { randomNumber } = require('../helpers/libs');      // Helper para nombres aleatorios
 const { Image, Comment } = require('../models/index');    // Modelos de la base de datos
+const sidebar = require('../helpers/sidebar');            // Obtención de datos para la sidebar
 
 const ctrl = {};
 
@@ -18,7 +19,7 @@ const ctrl = {};
  */
 ctrl.index = async (req, res) => {
   // Búsqueda. La expresión regular es para que incluya la extensión en la dirección 
-  const viewModel = { images: {}, comments: [] };
+  let viewModel = { images: {}, comments: [] };
 
   const image = await Image.findOne({ filename: { $regex: req.params.image_id } });
   if (image) {
@@ -28,6 +29,7 @@ ctrl.index = async (req, res) => {
     const comments = await Comment.find({ image_id: image._id })
       .sort({ timestamp: 1 });
     viewModel.comments = comments;
+    viewModel = await sidebar(viewModel); // Añadiendo sidebar al objeto de variables para las vistas
     res.render('image', viewModel);
   } else {
     res.redirect('/');

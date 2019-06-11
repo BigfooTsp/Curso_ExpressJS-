@@ -16,6 +16,7 @@ const ImageSchema = new Schema({
 /** Variable virtual 
  * Función que genera una variable image.uniqueId donde encontrar
  * el nombre del archivo sin extensión
+ * Esta variable se genera cada vez que el modelo es llamado.
  */
 ImageSchema.virtual('uniqueId')
   .get(function () {

@@ -24,7 +24,14 @@
     <div class="container p-4">
       <div class="row">
         <div class="col-md-8">
+          <!-- Inserción del cuerpo de la aplicación -->
           {{{ body  }}} 
+        </div>
+          <!-- Inserción de sidebar con partials -->
+        <div class="col-md-4">
+          {{> stats }}
+          {{> popular }}
+          {{> comments}}
         </div>
       </div>
     </div>

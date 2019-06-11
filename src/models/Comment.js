@@ -12,6 +12,15 @@ const CommentSchema = new Schema({
   timestamp: { type: Date, default: Date.now },
 });
 
+/** Propiedad virtual que devuelve  */
+CommentSchema.virtual('image')
+  .set(function (image) {
+    this._image = image;
+  })
+  .get(function () {
+    return this._image;
+  });
+
 
 // Creando esquema
 module.exports = model('Comment', CommentSchema);
