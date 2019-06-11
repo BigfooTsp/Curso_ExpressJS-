@@ -1,23 +1,34 @@
-/** Los controladores son funciones que se pueden
- * solicitar indicándolas como  argumento en las 
- * funciones de enrutamiento.
+/** Controlador que comunica el servidor con la base de datos.
+ * Se trata de configurar las operaciones necesarias con la base de datos y 
+ * prepara las variables para ser utilizadas por el gestor de vistas de 
+ * express
  */
+
+/** Importaciones comunes
+const path = require('path');                             // Funciones para nombres de directorios
+const fs = require('fs-extra');                           // Funciones extra file system
+const md5 = require('md5');                               // Manejo de hash
+*/
+
+const sidebar = require('../helpers/sidebar');   // Helper constar los _items_ de la BD
 
 const ctrl = {};
 
-const { Image } = require('../models');
-
-const sidebar = require('../helpers/sidebar');
-
+/** TEST */
 /** Configura página de inicio */
 ctrl.index = async (req, res) => {
-  const images = await Image.find().sort({ timestamp: -1 });
-  /** Obtención de los stats para la sidebar */
-  let viewModel = { images: [] };             // crea contenedor para los datos
-  viewModel.images = images;                  // Los completa con los ids de las imágenes
-  viewModel = await sidebar(viewModel);       // Usa el helper para completar el objeto con los datos
-  // Solicita vista con los datos obtenidos
+  let viewModel = { user: req.user };  
+  viewModel = await sidebar(viewModel); // Añade { viewModel.sidebar: { stats: ..., ... }}
   res.render('index', viewModel);
+};  
+
+
+/** About */
+ctrl.about = async (req, res) => {
+  let viewModel = { user: req.user };  
+  viewModel = await sidebar(viewModel); // Añade { viewModel.sidebar: { stats: ..., ... }}
+  res.render('about', viewModel);
 };
+
 
 module.exports = ctrl;

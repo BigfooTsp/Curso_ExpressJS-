@@ -1,0 +1,8 @@
+ctrl + mays + DOWN/UP   Selecciona varias líneas
+ctrl + alt + DOWN/UP 	Aumenta cursores
+alt + mays + DOWN/UP 	Copia la línea
+ctrl + LEFT/RIGHT	Mueve el cursor entre palabras
+ctr + DOWN/UP		Mueve el documento
+alt + DOWN/UP 		Mueve de posición la línea
+alt + mays + A 		Insertar comentario
+mays + alt + A 		Comentar

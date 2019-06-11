@@ -1,8 +1,4 @@
-/** Este archivo redireciona los modelos indexados */
-
-
 module.exports = {
-
-  Image: require('./Image'),
-  Comment: require('./Comment'),
+  _Item_: require('./_Item_'),
+  User: require('./User'),
 };

@@ -41,7 +41,7 @@ module.exports = async () => {
     imageCounter(),
     commentsCounter(),
     imageTotalViewsCounter(),
-    likesTotalCounter()
+    likesTotalCounter(),
   ]);
 
   return {

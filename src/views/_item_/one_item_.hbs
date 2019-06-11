@@ -1,0 +1,45 @@
+<!------------- _item_ ---------------->
+<!------------------------------------->
+<div class="card">
+  <!-- Título, botón borrar  -->
+  <div class="card-header d-flex justify-content-between align-items-center">
+    <h5>{{ _item_._id }}</h5>
+    <form action="/_item_/delete/{{_item_._id}}" method="POST">
+      <button class="btn btn-danger" id='button-delete'>
+        <i class="fa fa-times"></i> Delete
+      </button>
+    </form>
+  </div>
+
+  <!-- Presentacion y actualización del item  -->
+  <div class="container">
+    <form action="/_item_/update/{{_item_._id}}" method="POST" enctype="multipart/form-data">
+      <!-- Comment -->
+      <div class="form-group">
+        <label for="comment">Comment</label>
+        <input name="comment" class="form-control" id="input-comment" value="{{_item_.comment}}">
+      </div>
+      <!-- Archivo  -->
+      <div class="form-group">
+        <label for="file">Archivo</label>
+        <input type="text" name="file" class="form-control" placeholder="{{_item_.fileName}}{{_item_.fileExt}}"
+          aria-label="Recipient's filename" aria-describedby="basic-addon2" readonly>
+          <a href="{{_item_.filePath}}" class="btn btn-secondary my-2">Descargar archivo</a>
+
+      <!-- Boton Upload -->
+      <div class="form-group mt-3">
+        <button id="button-update" class="btn btn-warning" type="submit">
+          <i class="fa fa-upload"></i> Update
+        </button>
+      </div>
+  </div>
+</div>
+
+<!-- Tiempo desde que se creó -->
+<div class="card-footer d-flex justify-content-between align-items-center">
+  <p>
+    <i class="far fa-clock"></i>
+    {{timeago _item_.timestamp}} <!-- Utiliza el helper de .hbs timeago -->
+  </p>
+</div>
+</div>

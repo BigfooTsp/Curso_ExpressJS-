@@ -1,62 +1,8 @@
-<div class="card">
-
-  <div class="card-header bg-dark">
-    <h3 class="card-title text-white">
-      <i class="far fa-image"></i> Sube una imagen
-    </h3>
-  </div>
-  <!-- Formulario de envío de imagen -->
-  <div class="card-body">
-    <form action="/images" method="POST" enctype="multipart/form-data">
-      <!-- Selección de imagen a subir -->
-      <div class="form-group">
-        <div class="input-group">
-          <div class="custom-file">
-            <input type="file" name="image" class="custom-file-input"
-                   id="inputGroupFile" aria-describedby="inputGroupFileAddon"
-                   required>
-            <label class="custom-file-label" for="inputGroupFile">Selecciona una imagen</label>
-          </div>
-        </div>
-      </div>
-      <!-- Título de la imagen -->
-      <div class="form-group">
-        <input type="text" name="title" class="form-control" 
-               placeholder="Título de la imagen" required>
-      </div>
-      <!-- Descripción de la imagen -->
-      <div class="form-group">
-        <textarea name="description" class="form-control" rows="2"
-                  placeholder="Descripción de la imagen" required>
-        </textarea>
-      </div>
-      <!-- Boton Upload -->
-      <div class="form-group">
-        <button class="btn btn-success">
-          <i class="fa fa-upload"></i> Upload
-        </button>
-      </div>
-    </form>
-  </div>
-</div>
-
-<!-- Imagenes subidas -->
-<div class="card mt-2">
-  <div class="card-header bg-dark text-white">
-    <h3><i class="far fa-images"></i> Subidas recientes</h3>
-  </div>
-
-  <div class="card-body">
-    <div class="row">
-      {{#each images}}
-        <div class="col-md-4 text-center">
-          <a href="/images/{{uniqueId}}">
-            <img src="/public/upload/{{filename}}" alt="{{title}}" class='w-100 h-100 img-thumbnail'>
-          </a>
-        </div>
-
-
-      {{/each}}
-    </div>
-  </div>
+<div class="jumbotron mt-4">
+  <h1 class="display-4">Notes App Nodejs And Mongodb!</h1>
+  <p class="lead">Aplicación simple que sirve como plantilla. Gestiona CRUD en una base de datos Mongo con sesión de usuario</p>
+  <hr class="my-4">
+  <p>veniam voluptatibus aliquid unde sit Libero veniam similique ex reiciendis doloribus! Deleniti sunt cum ad est atque. Esse earum
+  </p>
+  <a class="btn btn-primary btn-lg" href="/about" role="button">About</a>
 </div>

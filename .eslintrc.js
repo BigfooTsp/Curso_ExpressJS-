@@ -31,5 +31,7 @@ module.exports = {
         "func-names": 0,
         "max-len": 0,
         "no-underscore-dangle": 0,
+        "camelcase": 0,
+        "prefer-const": 0,
     }
 };

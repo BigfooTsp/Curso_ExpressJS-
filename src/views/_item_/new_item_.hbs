@@ -1,0 +1,36 @@
+<div class="card">
+
+  <div class="card-header">
+    <h3 class="card-title">
+      <i class="far fa-file"></i> Añade _item_ a la base de datos
+    </h3>
+  </div>
+
+  <!-- Formulario de envío de _item_ -->
+  <div class="card-body">
+    <form action="/_item_/create" method="POST" enctype="multipart/form-data">
+      
+      <!-- Selección archivo _item_ a subir -->
+      <div class="form-group">
+        <div class="input-group">
+          <div class="custom-file">
+            <label class="custom-file-label" for="inputGroupFile">Selecciona archivo</label>
+            <input type="file" name="file" class="custom-file-input" id="inputGroupFile"
+              aria-describedby="inputGroupFileAddon">
+          </div>
+        </div>
+      </div>
+      <!-- Comment -->
+      <div class="form-group">
+        <textarea name="comment" class="form-control" rows="2" placeholder="Comment" required>
+        </textarea>
+      </div>
+      <!-- Boton Upload -->
+      <div class="form-group">
+        <button id="button-upload" class="btn btn-success" type="submit">
+          <i class="fa fa-upload"></i> Upload
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

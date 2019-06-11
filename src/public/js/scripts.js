@@ -1,54 +1,43 @@
-/* eslint-disable no-alert */
-/* eslint-disable no-restricted-globals */
-/* eslint-disable no-undef */
+/** Acción de botón de 'guardar _item_' 
+ * [ ] Event listener
+ * [ ] Guardar en la base de datos
+ * [ ] Devolver vista de item nuevo
+ * [ ] Gestionar error
+*/
 
-$(() => {
-  // Post Toggle View
-  $('#post-comment').hide();
-  $('#btn-toggle-comment').click((e) => {
-    e.preventDefault();
-    $('#post-comment').slideToggle();
+
+
+
+
+/** Acción de botón de 'eliminar _item_' 
+ * [ ] Event listener
+ * [ ] Guardar en la base de datos
+ * [ ] Devolver vista de item nuevo
+ * [ ] Gestionar error
+*/
+
+/*
+// elemento_que_se_escucha.addEventListener('evento',función_a_lanzar,booleano);
+const btnUpload = document.getElementById('button-upload')
+  .addEventListener('submit', (res, err) => {
+    console.log('.........', res);
   });
+
+
+
+const btnEdit = document.getElementById('button-update')
+  .addEventListener('submit', (res, err) => {
+    console.log(res);
+  });
+
+
   
-  /** LIKE BUTTON
- * Al presionarlo, se obtiene el id de la imagen y
- * se utiliza para ejecutar una petición POST
- */
-  $('#btn-like').click(function (e) {
-    console.log('detectada presión en botón like');
-    e.preventDefault();
-    const imgId = $(this).data('id');
-    console.log(imgId);
-    $.post(`/images/${imgId}/like`)
-      .done((data) => {
-        console.log('back:', data);
-        $('.likes-count').text(data.likes);
-      });
-  });
-
-  /** DELETE BUTTON
- * 
- */
-  $('#btn-delete').click(function (e) {
-    console.log('apretado delete');
-    e.preventDefault();
-    const $this = $(this);
-    const response = confirm('¿Confirmas borrado de datos?');
-    if (response) {
-      const imgId = $(this).data('id');
-      $.ajax({
-        url: `/images/${imgId}`,
-        type: 'DELETE',
-      })
-        .done(() => {  // Cambia aspecto del botón al borrar
-          $this.removeClass('btn-danger').addClass('btn-success');
-          $this.find('i').removeClass('fa-times').addClass('fa-check');
-          $this.append('<span>Deleted!</span>');
-        })
-        .reject((error) => {
-          console.log('<!> Ha habido un error eliminado la imagen: ', error);
-        });
-    }
-
-  });
-});
+  const btnDelete = document.getElementById('button-delete')
+  .addEventListener('click', delete_item_);
+  
+  
+  
+  delete_item_ = (_id) => {
+    console.log(_id);
+  }
+  */

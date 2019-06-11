@@ -1,0 +1,30 @@
+<div class="row">
+  {{#each _items_}}
+    <div class="card d-flex">
+      <div class="card-header d-flex justify-content-between align-items-center">
+        <!-- delete item button -->
+        <p class='card-text h6'>{{ _id }}  </p>
+        <form action="/_item_/delete/{{_id}}" method="POST">
+          <button type='submit' class="btn btn-danger btn-block btn-sm" id='button-delete'>
+            <i class="fa fa-times"></i>
+          </button>
+        </form>
+      </div>
+      <div class="card-body">
+        <p>{{ pretiffyDate timestamp }}</p>
+        <!-- view item button -->
+        <form action="/_item_/{{_id}}" method="GET">
+          <button type="submit" class="btn btn-success btn-block btn-sm">Open</button>
+        </form>
+      </div>
+    </div>
+  {{else}}
+    <div class="card mx-auto">
+      <div class="card-body">
+        <h1>Hello {{user.name}}</h1>
+        <p class="lead">No hay _items_ en la base de datos</p>
+        <a href="/_item_/new_item_" class="btn btn-success btn-block">Create One!</a>
+      </div>
+    </div>
+  {{/each}}
+</div>

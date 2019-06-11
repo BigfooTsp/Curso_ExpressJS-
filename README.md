@@ -1,35 +1,29 @@
-# Proyecto de Red Social tipo imgur con ExpressJS y Mongo
+# Plantilla para proyecto ExpressJS-MongoDB.
+
+Plantilla de servidor basada en el proyecto.
 
 
-### Referencias
-[Vídeo tutorial](https://www.youtube.com/watch?v=TqC3e8nBycg)
-
-https://github.com/FaztTech/nodejs-im...
-
-INDICE DEL CURSO  
-* VISTA PREVIA DEL PROYECTO: 00:00
-1. CREACIÓN DEL SERVIDOR: 04:55
-2. RUTAS DEL SERVIDOR CON EXPRESS: 53:34
-3. MOTOR DE PLANTILLAS Y VISTAS: 01:05:59
-4. SUBIDA DE IMAGENES 01:32:43
-5. GUARDANDO IMAGENES EN MONGODB: 01:54:46
-6. RENDERIZANDO LAS IMAGENES 02:24:00
-7. VISTA DE PERFIL PARA LAS IMAGENES 02:35:13
-8. PUBLICAR COMENTARIOS 03:00:30
-9. MOSTRAR LOS COMENTARIOS EN LA VISTA 03:24:21
-10. ACTUALIZANDO LAS VISTAS 03:33:21
-11. LIKES 03:40:47
-12. ELIMINAR IMAGENES 03:51:24
-13. BARRA LATERAL: 04:05:45
+![](src/public/images/App_elements.jpeg)
 
 
-## Avance del proyecto
-Consultar archivo [CHANGELOG.md](CHANGELOG.md)  
+## Características
+Plantilla para aplicación Node con servidor web Express y conexión a base de datos Mongo.
+- CRUD de objeto -Item- a Mongo usando [mongoose](https://mongoosejs.com/).
+- Mensajes a usuario con [connect-flash](https://github.com/jaredhanson/connect-flash)
+- Subida de archivos al servidor con [multer](https://github.com/expressjs/multer)
+- Configruado para logear errores [errorhandler](https://www.npmjs.com/package/errorhandler)
+  - Configurar mensajes popups de errores [node-notifier](https://www.npmjs.com/package/node-notifier)
 
-![](/tutorial/images/ImShare.jpeg)
+- Se añade sesión de usuario con 
+  - [espress-passport](https://www.npmjs.com/package/express-passport)
+  - [passport-local](https://www.npmjs.com/package/passport-local) Pligin para el esquema de mongo
+  - [passport](https://www.npmjs.com/package/passport)
 
-## TODO 
-- [ ] Aprender sobre Mongoose
-- [ ] Aprender sobre Boostrap
-- [ ] Información sobre el modulo *multer*
-- [ ] Información sobre el modulo *fs-extra*lñ´`
+
+## Instrucciones
+La plantilla tiene un solo modelo llamado *\_Item_*.
+En el código los elemementos de esta colección se denominan *\_item_* o *\_items_*. Varias funciones que se refieren a ellos también tienen estas palabras en su lugar.
+Tiene la capacidad de subir archivos al directorio *public/upload* renombrados con el _id del item asociado
+Para personalizar estos nombres usar *buscar y sustituir* del editor de código.
+
+
