@@ -18,6 +18,7 @@ Plantilla para aplicación Node con servidor web Express y conexión a base de d
   - [espress-passport](https://www.npmjs.com/package/express-passport)
   - [passport-local](https://www.npmjs.com/package/passport-local) Pligin para el esquema de mongo
   - [passport](https://www.npmjs.com/package/passport)
+- Se añade aplicación de char entre usuarios con webshocket
 
 
 ## Instrucciones

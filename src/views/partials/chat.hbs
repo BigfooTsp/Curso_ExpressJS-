@@ -8,15 +8,18 @@
 
   <div class="card-body">
 
-    <div id='messages'></div>
-    
-    <form action="/send-message" method='POST'>
-      <div class="form-group">
-        <input type="textarea" class="form-control" name='message' placeholder='mensaje'>
+    <div class="overflow-auto bg-light"
+        style="max-height: 400px;"
+       id='messages' name='messages'></div> <!-- Aquí los mensajes del chat -->
+
+    <form onsubmit="return addMessage(this)" id='form-chat' data-name='{{user.name}}'>
+      <div class="form-group mt-4">
+        <textarea class="form-control" rows='2' id='message' placeholder='mensaje' required>
+        </textarea>
         <small id="messageHelp" class="form-text text-muted">Envía un mensaje al chat</small>
       </div>
       <div class="form-group">
-        <button type='submit' class='btn btn-primary'>Enviar</button>
+        <button type='submit' class='btn btn-primary' id='btn-sendMessage'>Enviar</button>
       </div>
     </form>
   </div>
