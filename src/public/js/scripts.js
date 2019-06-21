@@ -1,43 +1,7 @@
-/** Acción de botón de 'guardar _item_' 
- * [ ] Event listener
- * [ ] Guardar en la base de datos
- * [ ] Devolver vista de item nuevo
- * [ ] Gestionar error
-*/
-
-
-
-
-
-/** Acción de botón de 'eliminar _item_' 
- * [ ] Event listener
- * [ ] Guardar en la base de datos
- * [ ] Devolver vista de item nuevo
- * [ ] Gestionar error
-*/
-
-/*
-// elemento_que_se_escucha.addEventListener('evento',función_a_lanzar,booleano);
-const btnUpload = document.getElementById('button-upload')
-  .addEventListener('submit', (res, err) => {
-    console.log('.........', res);
-  });
-
-
-
-const btnEdit = document.getElementById('button-update')
-  .addEventListener('submit', (res, err) => {
-    console.log(res);
-  });
-
-
-  
-  const btnDelete = document.getElementById('button-delete')
-  .addEventListener('click', delete_item_);
-  
-  
-  
-  delete_item_ = (_id) => {
-    console.log(_id);
-  }
-  */
+/** Para conectar el servidor y el cliente:
+ * El servido importa el módulo y lo configura con el servidor. 
+ * Ofrece en  el script "/socket.io/socket.io.js" que se importa en el html *main*
+ * Esta importación ofrece la variable io en todo el html
+ * El script personal instancia este objeto para conectar cliente y servidor.
+ */
+io();

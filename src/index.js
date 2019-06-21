@@ -11,6 +11,14 @@ const app = config(express());							// Genera instancia configurada de Express
 require('./database');                
 
 // Starting the server
-app.listen(app.get('port'), () => {
+const server = app.listen(app.get('port'), () => {
   console.log('Server on port', app.get('port'));
+});
+
+// websockets
+const io = require("socket.io")(server);      // Servidor de sockets. Envía archivo socket.io.js al navegador
+
+// Creando socket que responde al evento 'connection'
+io.on('connection', (socket) => {
+  console.log('Alguien se ha conectado con Sockets');
 });
