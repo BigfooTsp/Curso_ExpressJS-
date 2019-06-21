@@ -20,5 +20,5 @@ const io = require("socket.io")(server);      // Servidor de sockets. Envía arc
 
 // Creando socket que responde al evento 'connection'
 io.on('connection', (socket) => {
-  console.log('Alguien se ha conectado con Sockets');
+  console.log('cliente conectado id:', socket.id);
 });
